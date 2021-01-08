@@ -1,0 +1,19 @@
+<title>My Products</title>
+<h1>My Products</h1>
+<form (ngSubmit)="onAddProduct(f)" #f="ngForm">
+  <input type="text" ngModel name="productName" required>
+
+  <button (click)="productName = 'A big Tree'" [disabled]="isDisabled">Change Name</button>
+  <button type="submit">Add Product</button>
+</form>
+
+
+<!--
+  <input *ngIf="!isDisabled" type="text" [(ngModel)]="productName">
+
+  <button (click)="productName = 'A big Tree'" [disabled]="isDisabled">Change Name</button>
+  <button (click)="onAddProduct()">Add Product</button>
+-->
+
+<app-product (productClicked)="onRemoveProduct(product)" *ngFor="let product of products"
+             [produkteName]="product"></app-product>
